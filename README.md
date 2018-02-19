@@ -1,2 +1,6 @@
-# web-330
-Class Work From WEB-330
+# WEB-330
+Enterprise Javascript II
+# contributors
+Jared Brown - Belleveu University
+
+Professir Krasso - Bellevue University
