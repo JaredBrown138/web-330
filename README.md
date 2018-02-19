@@ -3,4 +3,4 @@ Enterprise Javascript II
 # contributors
 Jared Brown - Belleveu University
 
-Professir Krasso - Bellevue University
+Professor Krasso - Bellevue University
