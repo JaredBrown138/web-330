@@ -1,6 +1,6 @@
 
 /**
- * Author: Jared Brown
+ * Author: Jared Brown, Gabriel Vance
  * Created: February 22, 2018
  * Comments: Example for Week 1 if WEB-330
  * 
