@@ -1,6 +1,6 @@
 # WEB-330
 Enterprise Javascript II
-# contributors
+# Contributors
 Jared Brown - Belleveu University
 
 Professor Krasso - Bellevue University
