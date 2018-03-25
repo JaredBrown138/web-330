@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <style>
+        .container {
+            width: 40%;
+            margin: auto;
+            margin-top: 50px;
+    
+        }
+    
+        h2 {
+            text-align: center;
+        }
+    
+        span {
+            display: block;
+            width: 50%;
+            margin: auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+    
+        button {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 30%;
+            padding: 10px;
+    
+        }
+    
+        #clear {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 30%;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        /*
+        ============================================
+        ; Title:  Exercise 5.2
+        ; Author: Professor Krasso, Jared Brown 
+        ; Date:   25 March 2018
+        ; Description: A short exercise in using 
+        ; the proxy method for jQuery
+        ;===========================================
+        */
+        $(function () {
+            var phone = {
+                make: "Samsung Galaxy",
+                model: "Note 4",
+                display: function () {
+                    $(".results").html("");  //Clear inside of the span
+                    $(".results").append("Make: " + this.make + "<br /> Model: " + this.model);
+                }
+            }
+            $("#button").click($.proxy(phone, "display"));
+            $("#clear").click(() => { $(".results").html(""); })
+        });
+
+    </script>
+    <div class="container">
+        <h2>Proxy Example</h2>
+        <button id="button">Click Here</button>
+        <span class="results"></span>
+        <a href="#" id="clear">Clear Results</a>
+    </div>
+
+</body>
+
+</html>
