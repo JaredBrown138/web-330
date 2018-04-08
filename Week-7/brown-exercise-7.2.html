@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Exercise 7.2</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+    <script src="../knockout-3.4.2.js"></script>
+    <style>
+        h2{
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div role="main" class="container">
+        <h2>Your Name</h2>
+        <div class="form-group">
+            <label for="firstName">First Name: </label>
+            <input type="text" data-bind="value: firstName" class="form-control" id="firstName" />
+        </div>
+        <div data-bind="if: firstName">
+            <div class="form-group">
+                <label for="lastName">Last Name: </label>
+                <input type="text" data-bind="value: lastName" class="form-control" id="lastName" />
+            </div>
+        </div>
+        <br/>
+        <div data-bind="if: firstName && lastName">
+            <h2>
+                <span id="nameOutput" class="alert-success" data-bind="text:
+                fullName"></span>
+            </h2>
+        </div>
+        <br/>
+    </div>
+
+
+    <script>
+        function NameViewModel(){
+            this.firstName = ko.observable("");
+            this.lastName = ko.observable("");
+            this.fullName = ko.pureComputed( function(){
+                return this.firstName() + " " + this.lastName();
+            }, this);
+        }
+        ko.applyBindings(new NameViewModel());
+    </script>
+
+</body>
+
+</html>

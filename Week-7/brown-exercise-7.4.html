@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Assignment 7.4</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+    <script src="../knockout-3.4.2.js"></script>
+</head>
+
+<body>
+    <div role="main" class="container">
+        <h2>JavaScript Tutorials</h2>
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Tutorial</th>
+                    <th>Description</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: tutorials">
+                <tr>
+                    <td data-bind="text: title"></td>
+                    <td data-bind="text: description"></td>
+                    <td> <a data-bind="text: $parent.linkText, attr: {href: link, target: $parent.target}, style: {color: $parent.linkColor}"></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+    </div>
+
+
+    <script>
+        const LINK_TEXT = "Click Here";
+        const TARGET = "_blank";
+        const LINK_COLOR = "lightblue";
+        function TutorialViewModel( linkText, target, linkColor ) {
+            this.linkText = ko.observable(linkText);
+            this.target = ko.observable( target );
+            this.linkColor = ko.observable( linkColor )
+            this.tutorials = ko.observableArray([
+                { title: "Closures", description: "A deep dive into closures", link: "https://javascript.info/closure" },
+                { title: "Object Literals", description: "A brief look at object literals", link: "http://www.dyn-web.com/tutorials/object-literal/" },
+                { title: "Differential Inheritance", description: "Using Object.create() to implement differential inheritance", link: "https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9" },
+                { title: "The Module Pattern in JS", description: "A look at implementing the module pattern in JS", link: "https://medium.com/@tkssharma/javascript-module-pattern-b4b5012ada9f" },
+                { title: "Prototypes In JS", description: "A look at prototypes in a prototype-based language", link: "https://hackernoon.com/prototypes-in-javascript-5bba2990e04b" }
+            ]);
+        }
+    ko.applyBindings(new TutorialViewModel(LINK_TEXT, TARGET, LINK_COLOR));
+    </script>
+
+</body>
+
+</html>
